@@ -1,0 +1,12 @@
+#cloud-config
+password: ubuntu
+ssh_pwauth: true
+chpasswd:
+  expire: false
+
+growpart:
+  devices: [/]
+  ignore_growroot_disabled: false
+  mode: auto
+
+timezone: Asia/Shanghai
