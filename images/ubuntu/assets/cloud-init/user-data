@@ -1,0 +1,20 @@
+#cloud-config
+users:
+  - name: runner
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDAGiHRgweN7rOM5DLSP+ecSokdRacvUK4xZS5ghPpN9bY+t3xsIzD0lZOqBjxZfjFkpjSb4xAaF1QxflLUHZGa12A7daDWmIdqtVsny5XYLH7wGyFRGjz1aXN4FrlrogVktsFcIuYbgLLvIi5MTRC9t9mppo8aXmAjDs8VJYqo5kREuwp2tpvvl3EL/Jk5t+iS7mVSw3qCF/P4uunYuQ/u/N8/9kgqY/AAA7uKX48P6jI3YkWmksW337tZqszJYXKSjtgPn782EcAeZhooeMpKYPgbHuDnDwi7ven+g88z8MAHDi1mktdMlgwE/bMxTnGml1XigrGy0kU9o0/afiaKvJdet+42bMdZOUcLjYU2BXQe0oSRIHefVIEE0FdvlkufgbVaibRxNfbUxivff5H30923CaBWEogu6wEhrzcIjP0jcpGv3fdGrrReBnLhTZUod3UrpmznrHr5X9anOxHGXYnwPYcNVRN9ljDYRe3lTKO7V5CT9V9BYxvkJLw7VYrhxQ30vcZd7EFmnSEWM/qxB5OzBMoShAKFXxT60mGGbhsbUMJHwLVUVUOBxIBfWYjakbw6Z5tGXAZNbfqsvEgJxruRQCsapjieGWSygRaGsnYAUUBY95i2ZXuPNQxnZzgDfxLLv6bbIxnsST71IdpU9IfwMZ8lUu16y9nnuVy1pw== wention@wk
+
+ssh_pwauth: true
+chpasswd:
+  expire: false
+  users:
+    - {name: runner, password: runner, type: text}
+
+growpart:
+  devices: [/]
+  ignore_growroot_disabled: false
+  mode: auto
+
+timezone: Asia/Shanghai
